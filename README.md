@@ -88,3 +88,37 @@ Fique à vontade para sugerir novos exercícios ou melhorias para esta lista.
 
 Feito com 💻 por **Gustavo Farias**
 
+
+## 🗂️ Organização do Projeto
+
+.
+├── basico/                        # Exercícios 01 a 15 (fundamentos da linguagem)
+│   ├── ex01_ola_mundo.php
+│   ├── ex02_soma.php
+│   ├── ...
+│
+├── intermediario/                # Exercícios 16 a 30 (funções, arrays e strings)
+│   ├── ex16_funcao_soma.php
+│   ├── ex17_palindromo.php
+│   ├── ...
+│
+├── avancado/                     # Exercícios 31 a 40 (formulários, arquivos, sessões)
+│   ├── ex31_agenda_contatos.php
+│   ├── ex32_formulario.php
+│   ├── ...
+│
+├── poo/                          # Exercícios 41 a 50 (Programação Orientada a Objetos)
+│   ├── Pessoa.php
+│   ├── ContaBancaria.php
+│   ├── ...
+│
+├── index.php                     # Página inicial com links para os exercícios (opcional)
+├── gabarito.txt                  # Respostas/soluções dos exercícios
+├── README.md                     # Documentação do projeto
+│
+├── docker-compose.yml            # Define os serviços (app e banco de dados)
+├── Dockerfile                    # Imagem personalizada com PHP, Apache e Composer
+├── composer.json                 # Dependências do projeto PHP
+└── composer.lock                 # (gerado automaticamente após o install)
+
+
