@@ -1,0 +1,5 @@
+{
+    "name": "gustavo/meu-projeto-php",
+    "description": "Um projeto para praticar PHP com Docker.",
+    "require": {}
+}
