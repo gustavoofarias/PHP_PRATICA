@@ -1,0 +1,42 @@
+# Versão do docker-compose
+version: '3.8'
+
+services:
+  # Serviço da nossa aplicação PHP
+  app:
+    build:
+      # Usa o Dockerfile no diretório atual (.)
+      context: .
+      dockerfile: Dockerfile
+    container_name: meu-app-php-compose
+    ports:
+      # Mapeia a porta 8080 da máquina para a 80 do contêiner
+      - "8080:80"
+    volumes:
+      # Monta o diretório atual no diretório de trabalho do contêiner.
+      # Isso permite que alterações no seu código local reflitam instantaneamente no contêiner,
+      # sem precisar reconstruir a imagem. Ideal para desenvolvimento!
+      - .:/var/www/html
+    depends_on:
+      # Garante que o contêiner do banco de dados inicie antes da aplicação
+      - db
+
+  # Serviço do banco de dados MySQL
+  db:
+    image: mysql:8.0
+    container_name: meu-db-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: minha_base
+      MYSQL_USER: meu_usuario
+      MYSQL_PASSWORD: minha_senha
+      MYSQL_ROOT_PASSWORD: senha_do_root
+    ports:
+      # Expõe a porta do MySQL para a máquina local, se necessário (ex: para usar um client de DB)
+      - "3306:3306"
+    volumes:
+      # Persiste os dados do banco de dados em um volume no seu computador
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
